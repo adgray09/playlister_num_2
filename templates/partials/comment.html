@@ -3,6 +3,10 @@
 <div class='card'>
         <div class='card-block'>
             <h4 class='card-title'>{{ comment.title }}</h4>
+            {% if comment.created_at %}
+        <p class='text-muted'>Comment added {{ comment.created_at.strftime('%A, %d %B, %Y') }}
+            at {{ comment.created_at.strftime('%I:%M %p') }}</p>
+        {% endif %}
             <p class='card-text'>{{ comment.content }}</p>
         </div>
         <p><form method="POST" action='/playlists/comments/{{ comment._id }}'>

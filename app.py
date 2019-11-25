@@ -96,7 +96,8 @@ def comments_new():
     comment = {
         'title': request.form.get('title'),
         'content': request.form.get('content'),
-        'playlist_id': ObjectId(request.form.get('playlist_id'))
+        'playlist_id': ObjectId(request.form.get('playlist_id')),
+        'created_at': datetime.now()
     }
     print(comment)
     comment_id = comments.insert_one(comment).inserted_id
